@@ -44,9 +44,19 @@ export default function UploadCV({ setFileName }: UploadCVProps) {
   return (
     <div className="p-4 border rounded-md shadow-sm space-y-4">
       <h2 className="text-xl font-bold">Upload CV</h2>
-      <input type="file" onChange={(e) => setFile(e.target.files?.[0] || null)} />
+      <input
+        type="file"
+        onChange={(e) => setFile(e.target.files?.[0] || null)}
+        className="block w-full text-sm text-gray-700
+             file:mr-4 file:py-2 file:px-4
+             file:rounded-lg file:border-0
+             file:text-sm file:font-medium
+             file:bg-blue-600 file:text-white
+             hover:file:bg-blue-700
+             cursor-pointer"
+      />
       <Button disabled={uploading} onClick={handleUpload} className="flex items-center gap-2">
-        {uploading? <Loader2 className="animate-spin"/> : <UploadCloud />} {uploading? "Uploading" : "Upload"}
+        {uploading ? <Loader2 className="animate-spin" /> : <UploadCloud />} {uploading ? "Uploading" : "Upload"}
       </Button>
       {message && <p className="text-green-600">{message}</p>}
     </div>
