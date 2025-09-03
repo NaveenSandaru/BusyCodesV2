@@ -72,13 +72,13 @@ app.post("/send_email", async (req, res) => {
   }
 });
 
-app.get("/test", async (req, res)=> {
-  try{
-    const result = await invokeTool("test",{});
+app.get("/test", async (req, res) => {
+  try {
+    const result = await invokeTool("test", {});
     res.json(result);
   }
-  catch(err: any){
-    res.status(500).json({error: err.message});
+  catch (err: any) {
+    res.status(500).json({ error: err.message });
   }
 });
 
