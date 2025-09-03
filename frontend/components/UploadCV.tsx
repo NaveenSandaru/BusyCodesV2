@@ -12,13 +12,15 @@ export default function UploadCV({setFileName}:UploadCVProps) {
   const [file, setFile] = useState<File | null>(null);
   const [message, setMessage] = useState("");
 
+  const backendURL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
+
   const handleUpload = async () => {
   if (!file) return;
 
   const formData = new FormData();
   formData.append("file", file);
 
-  const res = await fetch("http://localhost:5000/upload_cv", {
+  const res = await fetch(`${backendURL}/upload_cv`, {
     method: "POST",
     body: formData,
   });
